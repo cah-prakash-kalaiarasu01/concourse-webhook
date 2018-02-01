@@ -1,0 +1,6 @@
+resources:
+  - name: controller
+    type: git
+    source:
+      uri: git@github.com:jshingler/concourse-webhook.git
+      branch: master

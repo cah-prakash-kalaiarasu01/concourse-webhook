@@ -1,0 +1,13 @@
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: git@github.com:concourse/concourse-webhook.git
+    branch: master
+
+jobs:
+- name: hello-world
+  plan:
+  - get: source-code
+  - task: say-hello
+    file: source-code/task.yml
