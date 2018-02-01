@@ -1,13 +1,15 @@
 resources:
-- name: source-code
+- name: sourcecode
   type: git
+  check_every: 600h
+  webhook_token: runit
   source:
-    uri: git@github.com:concourse/concourse-webhook.git
+    uri: https://github.com/jshingler/concourse-webhook.git
     branch: master
 
 jobs:
 - name: hello-world
   plan:
-  - get: source-code
-  - task: say-hello
-    file: source-code/task.yml
+  - get: sourcecode
+  - task: say-hello-webhook
+    file: sourcecode/tasks/helloworld.yml
